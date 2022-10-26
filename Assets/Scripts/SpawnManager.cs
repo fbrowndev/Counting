@@ -21,13 +21,13 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(BallSpawnTime());
     }
 
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(BallSpawnTime());
+        
     }
 
 
@@ -42,8 +42,12 @@ public class SpawnManager : MonoBehaviour
     #region Spawn Timer
     IEnumerator BallSpawnTime()
     {
-        yield return new WaitForSeconds(spawnTime);
-        BallSpawn();
+        while (true)
+        {
+            yield return new WaitForSeconds(spawnTime);
+            BallSpawn();
+        }
+
     }
     #endregion
 
