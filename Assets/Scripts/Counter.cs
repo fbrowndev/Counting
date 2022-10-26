@@ -19,5 +19,10 @@ public class Counter : MonoBehaviour
     {
         Count += 1;
         CounterText.text = "Count : " + Count;
+
+        if (other.gameObject.CompareTag("Point"))
+        {
+            Destroy(other.gameObject);
+        }
     }
 }
